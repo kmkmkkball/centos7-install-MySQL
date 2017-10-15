@@ -1,0 +1,21 @@
+wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+rpm -Uvh mysql57-community-release-el7-11.noarch.rpm
+yum install mysql-community-server
+
+vim /etc/my.cnf
+Add skip-grant-tables under [mysqld]
+
+systemctl start mysqld.service
+
+mysql -u root -p
+
+mysql> flush privileges
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewPassword';
+exit
+
+vim /etc/my.cnf
+DEL skip-grant-tables
+
+systemctl restart mysqld.service
+
+mysql -u root -p
