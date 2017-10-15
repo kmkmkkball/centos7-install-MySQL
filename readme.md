@@ -1,0 +1,1 @@
+# install MySQL on CENTOS7
